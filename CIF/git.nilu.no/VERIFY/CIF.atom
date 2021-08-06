@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+<title>CIF activity</title>
+<link href="https://git.nilu.no/VERIFY/CIF.atom" rel="self" type="application/atom+xml"/>
+<link href="https://git.nilu.no/VERIFY/CIF" rel="alternate" type="text/html"/>
+<id>https://git.nilu.no/VERIFY/CIF</id>
+<updated>2021-01-26T12:21:27Z</updated>
+<entry>
+  <id>tag:git.nilu.no,2021-01-26:18936</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/commit/c3745e4119e4f46cf5f3923982634678c197a970"/>
+  <title>Espen Sollum pushed to project branch espen at VERIFY / CIF</title>
+  <updated>2021-01-26T12:21:27Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/db343053a54fca3c1046e3e9c91a38ac?s=80&amp;d=identicon"/>
+  <author>
+    <username>espen</username>
+    <name>Espen Sollum</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Espen Sollum</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/commit/c3745e4119e4f46cf5f3923982634678c197a970">(c3745e41)</a>
+<i>
+at
+26 Jan 12:21
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Added some (not complete) obsparsers for verify and flexinvertplus ...</p></div>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2021-01-18:18771</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/commit/a939a86b685a9cbd7c21044b4d872635e4cda2ce"/>
+  <title>Jacob van Peet pushed to project branch TM5 at VERIFY / CIF</title>
+  <updated>2021-01-18T17:05:31Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/2cff1c3ba764ef7f8b8593e11bd2dc40?s=80&amp;d=identicon"/>
+  <author>
+    <username>vanpeet</username>
+    <name>Jacob van Peet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Jacob van Peet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/commit/a939a86b685a9cbd7c21044b4d872635e4cda2ce">(a939a86b)</a>
+<i>
+at
+18 Jan 17:05
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Compilation of full TM5 model from within CIF.</p></div>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-11-12:17595</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/compare/6e7371821a9cf6ed75c6f715464182f178390565...091603c6d7627fb719f9338b844ad08a7f9da2a3"/>
+  <title>Antoine Berchet pushed to project branch master at VERIFY / CIF</title>
+  <updated>2020-11-12T11:08:35Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Antoine Berchet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/compare/6e7371821a9cf6ed75c6f715464182f178390565...091603c6d7627fb719f9338b844ad08a7f9da2a3">(091603c6)</a>
+<i>
+at
+12 Nov 11:08
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Merge branch 'LSCE' into 'master'</p></div>
+<p>
+<i>
+... and
+20 more commits
+</i>
+</p>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-11-12:17594</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/merge_requests/24"/>
+  <title>Antoine Berchet accepted merge request !24: Lsce at VERIFY / CIF</title>
+  <updated>2020-11-12T11:08:35Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-11-12:17593</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/merge_requests/24"/>
+  <title>Antoine Berchet opened merge request !24: Lsce at VERIFY / CIF</title>
+  <updated>2020-11-12T11:01:10Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-11-12:17592</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/compare/ec5c721ecd412f8edc2567c420d8777488f8631e...a545994b1d37bd0f6d9345c9c717446585321984"/>
+  <title>Antoine Berchet pushed to project branch LSCE at VERIFY / CIF</title>
+  <updated>2020-11-12T11:00:55Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Antoine Berchet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/compare/ec5c721ecd412f8edc2567c420d8777488f8631e...a545994b1d37bd0f6d9345c9c717446585321984">(a545994b)</a>
+<i>
+at
+12 Nov 11:00
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Merge branch 'devel' into 'LSCE'</p></div>
+<p>
+<i>
+... and
+19 more commits
+</i>
+</p>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-11-09:17546</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/commit/d4bcbf73b93d3d78b93291add710c027a6704bfd"/>
+  <title>Jacob van Peet pushed to project branch TM5 at VERIFY / CIF</title>
+  <updated>2020-11-09T16:54:27Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/2cff1c3ba764ef7f8b8593e11bd2dc40?s=80&amp;d=identicon"/>
+  <author>
+    <username>vanpeet</username>
+    <name>Jacob van Peet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Jacob van Peet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/commit/d4bcbf73b93d3d78b93291add710c027a6704bfd">(d4bcbf73)</a>
+<i>
+at
+09 Nov 16:54
+</i>
+</p>
+<div class="blockquote"><p dir="auto">*) There is now a tm5.rc configuration file each time tm5 is run, see</p></div>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-11-05:17479</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/merge_requests/23"/>
+  <title>Antoine Berchet accepted merge request !23: Lsce at VERIFY / CIF</title>
+  <updated>2020-11-05T10:42:52Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-11-05:17478</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/compare/7b186ecedfaef539b4362b8acb169bcb2c22bc16...6e7371821a9cf6ed75c6f715464182f178390565"/>
+  <title>Antoine Berchet pushed to project branch master at VERIFY / CIF</title>
+  <updated>2020-11-05T10:42:52Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Antoine Berchet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/compare/7b186ecedfaef539b4362b8acb169bcb2c22bc16...6e7371821a9cf6ed75c6f715464182f178390565">(6e737182)</a>
+<i>
+at
+05 Nov 10:42
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Merge branch 'LSCE' into 'master'</p></div>
+<p>
+<i>
+... and
+19 more commits
+</i>
+</p>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-11-05:17477</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/merge_requests/23"/>
+  <title>Antoine Berchet opened merge request !23: Lsce at VERIFY / CIF</title>
+  <updated>2020-11-05T10:42:45Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-11-05:17476</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/compare/1bfc5c7e0cbe5005aa581d672281745a55652516...ec5c721ecd412f8edc2567c420d8777488f8631e"/>
+  <title>Antoine Berchet pushed to project branch LSCE at VERIFY / CIF</title>
+  <updated>2020-11-05T10:42:27Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Antoine Berchet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/compare/1bfc5c7e0cbe5005aa581d672281745a55652516...ec5c721ecd412f8edc2567c420d8777488f8631e">(ec5c721e)</a>
+<i>
+at
+05 Nov 10:42
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Merge branch 'devel' into 'LSCE'</p></div>
+<p>
+<i>
+... and
+18 more commits
+</i>
+</p>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-11-03:17454</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/compare/3271b2048fc8164cc86e5fe91ecc3fc3ffbcbbc7...39c60ce8582e418746710c06a7f63ce3b4bcbbe9"/>
+  <title>Jacob van Peet pushed to project branch TM5 at VERIFY / CIF</title>
+  <updated>2020-11-03T15:35:17Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/2cff1c3ba764ef7f8b8593e11bd2dc40?s=80&amp;d=identicon"/>
+  <author>
+    <username>vanpeet</username>
+    <name>Jacob van Peet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Jacob van Peet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/compare/3271b2048fc8164cc86e5fe91ecc3fc3ffbcbbc7...39c60ce8582e418746710c06a7f63ce3b4bcbbe9">(39c60ce8)</a>
+<i>
+at
+03 Nov 15:35
+</i>
+</p>
+<div class="blockquote"><p dir="auto">The TM5 source code should now compile based on settings in the YAM...</p></div>
+<p>
+<i>
+... and
+1 more commit
+</i>
+</p>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-11-03:17449</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/commit/7b186ecedfaef539b4362b8acb169bcb2c22bc16"/>
+  <title>Antoine Berchet pushed to project branch master at VERIFY / CIF</title>
+  <updated>2020-11-03T12:49:03Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Antoine Berchet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/commit/7b186ecedfaef539b4362b8acb169bcb2c22bc16">(7b186ece)</a>
+<i>
+at
+03 Nov 12:49
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Deleted pycif/plugins/minimizers/congrad/LICENSE, pycif/plugins/min...</p></div>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-10-14:16907</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/compare/e96c144161c5fe7cff0d13640f58dad8f5f63b86...ea3836978e65cea5dd1d76bfd3c04905c615c5d0"/>
+  <title>Antoine Berchet pushed to project branch master at VERIFY / CIF</title>
+  <updated>2020-10-14T10:47:14Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Antoine Berchet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/compare/e96c144161c5fe7cff0d13640f58dad8f5f63b86...ea3836978e65cea5dd1d76bfd3c04905c615c5d0">(ea383697)</a>
+<i>
+at
+14 Oct 10:47
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Merge branch 'LSCE' into 'master'</p></div>
+<p>
+<i>
+... and
+10 more commits
+</i>
+</p>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-10-14:16906</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/merge_requests/22"/>
+  <title>Antoine Berchet accepted merge request !22: Lsce at VERIFY / CIF</title>
+  <updated>2020-10-14T10:47:14Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-10-14:16905</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/merge_requests/22"/>
+  <title>Antoine Berchet opened merge request !22: Lsce at VERIFY / CIF</title>
+  <updated>2020-10-14T10:47:08Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-10-14:16904</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/compare/90380cd7f954be090c6d1c0728aab7b1bef07d08...1bfc5c7e0cbe5005aa581d672281745a55652516"/>
+  <title>Antoine Berchet pushed to project branch LSCE at VERIFY / CIF</title>
+  <updated>2020-10-14T10:46:34Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Antoine Berchet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/compare/90380cd7f954be090c6d1c0728aab7b1bef07d08...1bfc5c7e0cbe5005aa581d672281745a55652516">(1bfc5c7e)</a>
+<i>
+at
+14 Oct 10:46
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Merge branch 'devel' into 'LSCE'</p></div>
+<p>
+<i>
+... and
+9 more commits
+</i>
+</p>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-10-14:16903</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/compare/451ee67b503d6974e3ee84d8c72b0c3afb593b66...3271b2048fc8164cc86e5fe91ecc3fc3ffbcbbc7"/>
+  <title>Antoine Berchet pushed to project branch TM5 at VERIFY / CIF</title>
+  <updated>2020-10-14T10:45:30Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Antoine Berchet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/compare/451ee67b503d6974e3ee84d8c72b0c3afb593b66...3271b2048fc8164cc86e5fe91ecc3fc3ffbcbbc7">(3271b204)</a>
+<i>
+at
+14 Oct 10:45
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Removing debugging terminals</p></div>
+<p>
+<i>
+... and
+7 more commits
+</i>
+</p>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-10-13:16871</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/compare/49ef019952ee00f8cf94a8a4a8717840dbe4ee43...451ee67b503d6974e3ee84d8c72b0c3afb593b66"/>
+  <title>Antoine Berchet pushed to project branch TM5 at VERIFY / CIF</title>
+  <updated>2020-10-13T13:56:59Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Antoine Berchet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/compare/49ef019952ee00f8cf94a8a4a8717840dbe4ee43...451ee67b503d6974e3ee84d8c72b0c3afb593b66">(451ee67b)</a>
+<i>
+at
+13 Oct 13:56
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Template for TM5</p></div>
+<p>
+<i>
+... and
+28 more commits
+</i>
+</p>
+</div>
+  </summary>
+</entry>
+<entry>
+  <id>tag:git.nilu.no,2020-10-13:16853</id>
+  <link href="https://git.nilu.no/VERIFY/CIF/-/compare/ff763fcd491ea22617860254b4a3dd821f8009c2...e96c144161c5fe7cff0d13640f58dad8f5f63b86"/>
+  <title>Antoine Berchet pushed to project branch master at VERIFY / CIF</title>
+  <updated>2020-10-13T10:45:15Z</updated>
+  <media:thumbnail width="40" height="40" url="https://secure.gravatar.com/avatar/c2741d10c63925bec40d1ec89bd69a2a?s=80&amp;d=identicon"/>
+  <author>
+    <username>berchet</username>
+    <name>Antoine Berchet</name>
+    <email></email>
+  </author>
+  <summary type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p>
+<strong>Antoine Berchet</strong>
+<a href="https://git.nilu.no/VERIFY/CIF/-/compare/ff763fcd491ea22617860254b4a3dd821f8009c2...e96c144161c5fe7cff0d13640f58dad8f5f63b86">(e96c1441)</a>
+<i>
+at
+13 Oct 10:45
+</i>
+</p>
+<div class="blockquote"><p dir="auto">Merge branch 'LSCE' into 'master'</p></div>
+<p>
+<i>
+... and
+75 more commits
+</i>
+</p>
+</div>
+  </summary>
+</entry>
+</feed>

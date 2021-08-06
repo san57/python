@@ -1,0 +1,161 @@
+
+-----------------------------------------------------------------------
+Parametres de controle du run:
+------------------------------
+
+- Jour de l'etat initial ( = 350  si 19 Octobre ,par expl. ,comme ici )
+   dayref
+ $DD
+
+-  Annee de l'etat  initial (   avec  4  chiffres   )
+   anneeref
+ $YYYY
+
+- Nombre de jours d'integration
+     nday
+ $NBD
+
+- nombre de pas par jour (multiple de iperiod) ( ici pour  dt = 1 min )
+ day_step
+ 960
+
+- periode pour le pas Matsuno (en pas)
+  iperiod
+ 5
+
+- periode de sortie des variables de controle (en pas)
+  iconser
+ 240
+
+- periode d'ecriture du fichier histoire (en jour)
+    iecri
+ 5
+
+- periode de stockage fichier histmoy (en jour)
+ periodav
+ 30
+
+- periode de la dissipation (en pas)
+  idissip
+ 20
+
+- choix de l'operateur de dissipation (star ou  non star )
+ lstardis
+ T
+
+- nombre d'iterations de l'operateur de dissipation   gradiv
+nitergdiv
+ 1
+
+- nombre d'iterations de l'operateur de dissipation  nxgradrot
+nitergrot
+ 2
+
+- nombre d'iterations de l'operateur de dissipation  divgrad
+   niterh
+ 2
+
+- temps de dissipation des plus petites long.d ondes pour u,v (gradiv)
+ tetagdiv
+ 10800
+
+- temps de dissipation des plus petites long.d ondes pour u,v(nxgradrot)
+ tetagrot
+ 10800
+
+- temps de dissipation des plus petites long.d ondes pour  h ( divgrad)
+ tetatemp
+ 10800
+
+- coefficient pour gamdissip
+  coefdis
+ 0.
+
+- choix du shema d'integration temporelle (Matsuno ou Matsuno-leapfrog)
+  purmats
+ F
+
+- avec ou sans physique
+   physic
+ $PHYSIC
+
+- periode de la physique (en pas)
+  iphysiq
+ 10
+
+- frequence (en  jours ) de l'ecriture du fichier histphy
+ ecritphy
+ ${nday[${MO}-1]}
+
+-  Cycle diurne  ou non
+ cycle_diurne
+ T
+
+-  Soil Model  ou non
+ soil_model
+ T
+
+-  Choix ou non  de  New oliq
+ new_oliq
+ T
+
+-  Orodr  ou  non   pour l orographie
+  ok_orodr
+ T
+
+-  Orolf  ou  non   pour l orographie
+  ok_orolf
+ T
+
+-   Si = .T. ,  lecture du fichier limit avec la bonne annee
+  ok_limitvrai
+ F
+
+- Nombre  d'appels des routines de rayonnements ( par jour)
+  nbapp_rad
+ 12
+
+-  Flag  pour la convection ( 1 pour LMD,  2 pour Tiedtke, 3  CCM )
+  iflag_con
+ 2
+
+- longitude en degres du centre du zoom
+   clon
+ 0.
+
+- latitude en degres du centre du zoom
+   clat
+ 0.
+
+- facteur de grossissement du zoom,selon longitude
+  grossismx
+ 1.0
+
+- facteur de grossissement du zoom ,selon latitude
+ grossismy
+ 1.0
+
+-  Fonction  f(y)  hyperbolique  si = .true.  , sinon  sinusoidale
+  fxyhypb
+ T
+
+- extension en longitude  de la zone du zoom  ( fraction de la zone totale)
+   dzoomx
+ 0.
+
+- extension en latitude de la zone  du zoom  ( fraction de la zone totale)
+   dzoomy
+ 0.
+
+-  raideur du zoom en  X
+    taux
+ 1.
+
+-  raideur du zoom en  Y
+    tauy
+ 1.
+
+-  Fonction  f(y) avec y = Sin(latit.) si = .true. , sinon y = latit.
+  ysinus
+ F
+

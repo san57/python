@@ -1,0 +1,423 @@
+#####################
+#####################
+# PYCIF config file #
+#####################
+
+# Define here all parameters for PYCIF following Yaml syntax
+# For details on Yaml syntax, please see: 
+# http://docs.ansible.com/ansible/latest/YAMLSyntax.html
+
+# For non-specified parameters, one can either comment the corresponding line
+# or give the value "null"
+
+# Some parameters are switches that need to be activated or not.
+# PYCIF expects a boolean True/False
+# Yaml accepts the following syntax to be converted to booleans:
+# y|Y|yes|Yes|YES|n|N|no|No|NO|true|True|TRUE|false|False|FALSE|on|On|ON|off|Off|OFF
+# This offers flexibility, but one should stick to a style for consistency
+
+#####################################################################
+#####################################################################
+# PYCIF parameters
+
+# Verbose level
+# 1 = Basic information
+# 2 = Debugging
+verbose : 1
+
+# Log file (to be saved in $wordkir)
+logfile: pycif.logtest
+
+# Execution directory
+#workdir : /home/satellites13/msaunois/INVERSION/GCP_2018/run_00_18_inca_base_network/
+#workdir : /home/satellites13/aberchet/msaunois/
+workdir : /home/chimereges/aberchet/GCP_congrad_obs/
+
+# Initial date
+# Use the following compatible format for the date:
+# YYYY-mm-dd or YYYY-mm-dd HH:mm
+datei : 2000-01-01
+
+# End date (same as for the initial date)
+datef : 2018-03-01
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# To-Do for initializing PYCIF
+# Can be commented if running PYCIF directly
+#todo_init: [model]
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+platform:
+  plugin:
+    name: LSCE
+    version: obelix
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Running mode for PYCIF
+mode:
+  plugin:
+    name: 4dvar
+    version: std
+  minimizer:
+    plugin:
+      name: congrad
+      version: std
+    simulator:
+      plugin:
+        name: gausscost
+        version: std
+      reload_from_previous: True
+    maxiter: 20
+    epsg: 0.02
+    df1: 0.01
+    chi_min:
+    chi_max:
+#mode:
+#  plugin:
+#    name: adj-tl_test
+#    version: std
+#  increments: 0.2
+#  incrmode: cst
+#  testspace: control
+#  reload_results: True
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Transport model
+# Accepts any model registered in pycif.models
+model :
+  plugin:
+    name    : LMDZ
+    version : std
+
+  # Length of simulation sub-periods (use a Pandas frequency syntax)
+  periods: 1MS
+
+  # Executable
+  fileexec : /home/users/aberchet/CIF/model_sources/DISPERSION_gch/dispersion.e
+
+  # Definition file (includes some parameters for the simulation)
+  filedef  : /home/users/aberchet/CIF/model_sources/DISPERSION_gch/def/run.def
+
+  # Ap, Bp file
+  file_vcoord: /home/inversion/msaunois/LMDZ/39L/restartT2029-2006-1_MCFscaled2CH4scaled.nc
+
+  # Initial conditions recovered from:
+  inicond:
+    dir : /home/inversion/msaunois/LMDZ/39L/
+    file : restartT2029-2006-1_MCFscaled2CH4scaled.nc
+
+  # Include physics and thermals
+  # Default is True and False respectively
+  physic : True
+  thermals : False
+
+  # Convection scheme: One of :
+  # 'TK' = Tiedke
+  # 'KE' = 'Kerry Emmanuel'
+  # 'KE-Therm' = 'Kerry Emmanuel + some thermics'
+  conv_scheme: TK
+
+  # Chemistry
+  chemistry :
+    file_yaml : /home/users/aberchet/CIF/examples/sacs_chem_scheme_CH4.yml
+
+  # Fluxes
+  emis_species:
+    CH4:
+      dir: /home/inversion/msaunois/FLUXES/CH4/PYVAR/
+      file: sflx_CH4_GCP2018_%Y_LMDZ9696_phy.nc
+
+  # Dump outputs into a NetCDF file
+  dump: False
+
+  # Flushing trajq.bin files when not needed anymore
+  autoflush: True
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Observation operator
+# Used to run the model and translates information from model/measurement
+# spaces to control/observation spaces
+obsoperator:
+  plugin:
+    name: standard
+    version: std
+  autorestart: true
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Measurements to account for
+# Main keys are:
+# - infos: infos on tracers to include in the simulation
+# - file_monitor: standard txt file including all observations
+measurements :
+  plugin:
+    name: standard
+    version: std
+
+ # File where to save data, if does not exist. Reads from there if exists
+  file_monitor :  /home/satellites13/aberchet/LMDZ_DATA/monit/monitor_allobs.nc
+  dump_type : nc
+  species :
+    # List of tracers to include in the monitor file
+    # For each tracer observations, please specify:
+    # - provider = list of observation providers
+    # - format = list of format types
+    # - dir_obs = directory where to find observation files
+    # - err_obs (optional) = uncertainty on observations
+    # - depos (optional) = surface deposition file
+    # - rescale (optional) = true to change observation scale if necessary
+    # - na_values (optional) = invalid values to exclude. Default is -999
+    # - default_unit (optional) = basic unit for reporting the tracer
+    #                             everything is then converted to ppm
+    # - dump (optional) = dump to a monitor file. Default is True
+    # For tracer fluxes, please specify:
+    # - dir_flx: directory where reference fluxes are already computed
+    # - file_flx: file format to recover fluxes from
+    CH4 :
+      dailyPM :
+        provider : WDCGG
+        format   : std
+        dir_obs  : /home/isomet/msaunois/GCP_2018/Inputs/Obs/CH4/WDCGG_type/*.cn.*
+        rescale  : true
+        na_values : -999
+        default_unit : ppb
+        default_duration: 5
+        dump     : True
+        err_obs  : 0.05
+      flask :
+        provider : WDCGG
+        format   : std
+        dir_obs  : /home/isomet/msaunois/GCP_2018/Inputs/Obs/CH4/WDCGG_type/*.fl.*
+        rescale  : true
+        na_values : -999
+        default_unit : ppb
+        default_duration: 1
+        dump     : True
+        err_obs  : 0.05
+    MCF :
+      daily_noaa :
+        provider : WDCGG
+        format   : std
+        dir_obs  : /home/inversion/msaunois/DATA_OBS/MCF/ch3ccl3_20180425_ready/*.aircore.*.cn.*
+        na_values : -999
+        err_na_values : -999
+        default_unit : ppt
+        default_duration : 24
+        dump     : True
+        err_obs  : 0.1
+      daily_agage :
+        provider : WDCGG
+        format   : std
+        dir_obs  : /home/inversion/msaunois/DATA_OBS/MCF/ch3ccl3_20180425_ready/*dmagage.*.cn.*
+        na_values : 0.
+        err_na_values : 0.
+        default_unit : ppt
+        default_duration : 24
+        dump     : True
+        err_obs  : 0.1
+      flask :
+        provider : WDCGG
+        format   : std
+        dir_obs  : /home/inversion/msaunois/DATA_OBS/MCF/ch3ccl3_20180425_ready/*.fl.*
+        na_values : -999
+        err_na_values : 0.
+        default_unit : ppt
+        default_duration: 1
+        dump     : True
+        err_obs  : 0.1
+
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Arguments to define the state vector
+# These are specifi to the state vector and inversion method you chose
+# Please refer to the documentation to know what to include here
+# For the standard LMDZ, include the following:
+# - filelsm: land-sea mask (must be consistent with LMDZ grid)
+# - correl: Use correlation or not in B
+# - dircorrel: path to pre-computed correlations
+# - sigma_land: spatial correlation length for prior errors over land (km)
+# - sigma_sea: spatial correlation length for prior errors over ocean (km)
+# - tracers: list of tracers to put in the state vector (with definition arguments):
+#     - calcstd: calculate global standard deviation
+#     - hresol: resolution at which fields are scaled
+#            (choice = bands,regions,pixels;
+#             if regions, provide a netcdf file fileregion
+#             if bands, define a list of latitudes as band limits (n+1 for n bands)
+#     - periodflux: period of variation for increments within a month (days)
+#     - glob_err (optional) = uncertainty on global budget
+controlvect:
+  plugin:
+    name: standard
+    version: std
+  components:
+    fluxes:
+      parameters:
+        CH4 :
+          plugin:
+            name: 'LMDZ'
+            version: 'sflx'
+          hresol : hpixels
+  #        type : physical
+  #        errtype : max
+          err : 1
+          period : 1MS
+          subperiod: 10D
+          dir: /home/inversion/msaunois/FLUXES/CH4/PYVAR/
+          file: sflx_CH4_GCP2018_%Y_LMDZ9696_phy.nc
+          hcorrelations :
+            landsea: True
+            filelsm : /home/inversion/LMDZ/DATA_INV/lmdz9696/lsm.lmdz9696.nc
+            dump_hcorr : True
+            dircorrel : /home/satellites13/aberchet/LMDZ_DATA/CORREL/
+            sigma_land: 500
+            sigma_sea: 1000
+#        MCF:
+#          plugin:
+#            name: 'LMDZ'
+#            version: 'sflx'
+#          hresol : hpixels
+#          period : 1MS
+#          subperiod: 10D
+#          err : 0.01
+#          hcorrelations :
+#            landsea: True
+#            filelsm : /home/inversion/LMDZ/DATA_INV/lmdz9696/lsm.lmdz9696.nc
+#            dump_hcorr : True
+#            dircorrel : /home/satellites13/aberchet/LMDZ_DATA/CORREL/
+#            sigma_land: 500
+#            sigma_sea: 1000
+#          dir: /home/inversion/msaunois/FLUXES/MCF/
+#          file: sflx_MCF_scaled_%Y_LMDZ9696_phy.nc
+#    prescrconcs :
+#      parameters:
+#        OH:
+#          hresol : bands
+#          period : 1MS
+#          subperiod: 8D
+#          bands_lat : [-90, -45, 0, 45, 90]
+#          bands_lon : [-180, 180]
+#          err : 0.1
+#          calcstd : False
+    inicond :
+      parameters:
+        CH4:
+          hresol : bands
+          bands_lat : [-90.1, -60, -30, 0, 30, 60, 90.1]
+          bands_lon : [-180.1, -150, -120, -90, -60, -30,
+                       0, 30, 60, 90, 120, 150, 180.1]
+          err : 0.05
+          calcstd : False
+#        MCF:
+#          hresol : bands
+#          bands_lat : [-90.1, -60, -30, 0, 30, 60, 90.1]
+#          bands_lon : [-180.1, -150, -120, -90, -60, -30,
+#                       0, 30, 60, 90, 120, 150, 180.1]
+#          err : 0.1
+#          calcstd : False
+
+          #hresol : global
+          #err : 0.1
+#####################################################################
+#####################################################################
+ 
+
+#####################################################################
+#####################################################################
+# Domain definition
+domain :
+  plugin :
+    name : LMDZ
+    version : std
+  xmin : -180
+  xmax : 180
+  ymin : -90
+  ymax : 90
+  nlon : 97
+  nlat : 96
+  nlev : 39
+  type : deg
+  filegrid : /home/users/aberchet/PYVAR/msaunois/pyvar/grid_LMDZ96_96.txt
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# How to build your observation vector and observation uncertainties if needed
+# Also projects information from the observation to the model space
+# - file_obsvect: observation vector from previous simulations
+obsvect:
+  plugin:
+    name: standard
+    version: std
+  #file_obsvect : /home/satellites13/msaunois/PYVAR_FWD/GCP_2018/run_00_18_inca/obsoperator/fwd_0000/monitor_selec1.nc
+#  file_obsvect : /home/satellites13/aberchet/LMDZ_DATA/monit/monitor_pycif_test.nc
+  dump: True
+  wfunc : False
+  file_statlev: /home/users/aberchet/PYVAR/msaunois/pyvar/ReadObs/stations_levels_LMDZ39lev.txt
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Definition of meteo parameters
+# This can be model dependent, please refer to corresponding documentation for details
+meteo:
+  plugin:
+    name: LMDZ
+    version: mass-fluxes
+  dirmeteo: /home/satellites1/fcheval/LMDZ5/
+#####################################################################
+#####################################################################
+
+
+##################
+# Parameters below are not yet included in PYCIF
+#
+#
+## surface geopotential file
+#filegeopot : null
+#
+## first guess  path of the file if wanted
+#prevanal: null
+## LMDz precomputed (1) or not (0)
+#precalc : 0
+## perturb predefined prior/concentrations
+#perturbdir : null
+## seed for random number generation
+#seed : 3
+## diagnostics (0=none; 1=1D(time); 2=2D(lev,time); 3=4D(lat,lon,lev,time) )
+#diag : 0
+#
+#
+#
+#
+#

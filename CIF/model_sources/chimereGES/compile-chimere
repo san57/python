@@ -1,0 +1,59 @@
+#!/bin/sh
+# compilation
+
+echo -e "\033[32m --------------------------- \033[0m"
+echo -e "\033[32m Beginning compile-chimere \033[0m"
+
+# CHIMERE code type: 'L' (tangent-linear) or 'D' (forward) and 'A' (adjoint) or 'S' (backward)
+codetype=$1
+debug=$2
+clean=$3
+modedebug=PROD
+if [ "${debug}" == "Y" ] ; then
+modedebug=DEVEL
+fi
+monitoring=NO
+if [ "${debug}" == "YM" ] ; then
+monitoring=YES
+fi
+cat << EOD > Makefile.hdr.sed-commands
+s,_DEBUG_,${modedebug},
+s,_MONITOR_,${monitoring},
+EOD
+sed -f Makefile.hdr.sed-commands Makefile.hdr.sed > Makefile.hdr
+if [ ${codetype}  == "D" ] ; then
+echo -e "\033[32m Direct \033[0m"
+finalexe=fwdchimere.e
+cd ./src
+fi
+
+if [ ${codetype}  == "L" ] ; then
+echo -e "\033[32m Tangent-linear \033[0m"
+cd ./src_tl
+finalexe=tlchimere.e
+fi
+
+if [ ${codetype}  == "A" ] ; then
+echo -e "\033[32m Adjoint \033[0m"
+cd ./src_ad
+finalexe=achimere.e
+fi
+
+if [ -h ${finalexe} ] ; then
+    \rm ${finalexe}
+fi
+
+if [ "${clean}"  != "N" ] ; then
+    make -f Makefile_chimere clean >/dev/null 2>&1
+fi
+
+if [ -s ${finalexe} ] ; then
+  \rm ${finalexe}
+fi
+make -f Makefile_chimere ###>/dev/null 2>&1
+mv chimere.e ${finalexe}
+cd ..
+
+
+echo -e "\033[32m Ending compile-chimere \033[0m"
+echo -e "\033[32m --------------------------- \033[0m"

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd pycif/plugins/models/flexpart/utils/
+f2py -c mod_flexpart.f90 -m mod_flexpart > /dev/null 2>&1

@@ -1,0 +1,288 @@
+#####################
+# PYCIF config file #
+#####################
+
+# Define here all parameters for PYCIF following Yaml syntax
+# For details on Yaml syntax, please see:
+# http://docs.ansible.com/ansible/latest/YAMLSyntax.html
+
+# For non-specified parameters, one can either comment the corresponding line
+# or give the value "null"
+
+# Some parameters are switches that need to be activated or not.
+# PYCIF expects a boolean True/False
+# Yaml accepts the following syntax to be converted to booleans:
+# y|Y|yes|Yes|YES|n|N|no|No|NO|true|True|TRUE|false|False|FALSE|on|On|ON|off|Off|OFF
+# This offers flexibility, but one should stick to a style for consistency
+
+#####################################################################
+#####################################################################
+# PYCIF parameters
+
+# Verbose level
+# 1 = Basic information
+# 2 = Debugging
+verbose : 2
+
+# Log file (to be saved in $wordkir)
+logfile: tltestlog
+
+# Execution directory
+workdir : /home/chimereges/aberchet/debugchimere/newpyvarshort/testencours/
+
+# Initial date
+# Use the following compatible format for the date:
+# YYYY-mm-dd or YYYY-mm-dd HH:mm:ss
+datei : 2012-05-10 08:00:00
+
+# End date (same as for the initial date)
+datef : 2012-05-10 12:00:00
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+platform:
+  plugin:
+    name: LSCE
+    version: obelix
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Running mode for PYCIF
+mode:
+  plugin:
+    # direct simu = forward
+    name: adj-tl_test
+    version: std
+  increments: 0.2
+  incrmode: cst
+  testspace: control
+  reload_results: True
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Observation operator
+# Used to run the model and translates information from model/measurement
+# spaces to control/observation spaces
+obsoperator:
+  plugin:
+    name: standard
+    version: std
+  autorestart: true
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Transport model
+# Accepts any model registered in pycif.models
+model :
+  plugin:
+    name    : CHIMERE
+    version : std
+
+  # Length of simulation sub-periods (use a Pandas frequency syntax)
+  periods: 4H
+
+  # Executable
+  direxec : /home/users/aberchet/CIF/model_sources/chimereGES/
+
+  # Pre-computed fluxes
+  fluxes:
+    dir: /home/chimereges/aberchet/debugchimere/inputs/
+  # Pre-computed BC/IC
+  inicond:
+    dir: /home/chimereges/aberchet/debugchimere/inputs/
+    file: INI_CONCS08.1800.nc
+  boundcond:
+    dir: /home/chimereges/aberchet/debugchimere/inputs/
+  #  Number of physical steps per hour
+  nphour_ref : 6
+  # Number of chemical refined iterations
+  # i.e.  Refined time step relative to physics calculation;
+  # Down to 1/4 degree resolution, phys=6 and step=1 is fine;
+  # For finer grids (5-10 kms), take at least step=4;
+  # For grids of 2-5 kms, try step=6 or more
+  ichemstep : 6
+  # Deep convection: 0=No deep convection;
+  # 1 = Select deep convection automatically according to resolution,
+  #     deep conv fluxes from Tiedtke;
+  # 2 = Select deep convection automatically according to resolution,
+  #     deep conv fluxes from meteorological data
+  ideepconv : 1
+  # Number of Gauss-Seidel iterations in the TWOSTEP solver.
+  # 1 for model testing, 2 for higher accuracy
+  nitgs : 1
+  # Same but during spin-up
+  nitgssu : 1
+  # Number of MPI subdomains in zonal and meridian directions for // use
+  # XXXXXXX nombre de proc a passer a la commande dans run.py!!!!
+  nzdoms : 7
+  nmdoms : 1
+  # Dump outputs into a NetCDF file
+  dumpncoutput: True
+  # Dump parameters into a NetCDF file
+  dumpncpar: False
+  # Precision for output variables: double or float
+  dumpnctype: float
+  #  ! Save concentrations for restart every ... hours XX defaut=nhourrun
+  nsaveconcs: 4
+  # ! Save cumulated deposition every ... hours
+  nsavedepos: 4
+  #  Number of vertical layers in output files XX prendre defaut = nb total?XX
+  nivout: 29
+  # Use various processes or not
+  # chemistry XX doit-on qd meme donner shcema? XX
+  usechemistry: 0
+  # dry deposition
+  usedepos: 0
+  # emissions
+  useemissions: 1
+  # transport and mixing
+  usetransmix: 1
+  # wet deposition
+  usewetdepos: 0
+  # clipping of small (in absolute value) concentrations
+  useabsclipconc: 0
+  #  Number of spin-up hours
+  ihoursu : 0
+  # Type of biogenic emissions XX(pre-proc + utilise dans chimere aussi)
+  optemisb : -1
+  #######
+  # below: DO NOT modify at will, for experienced users only
+  nvegtype : 16
+  # Max number of landuse classes
+  nlduse : 09
+  # Max number of output parameters
+  nparammax : 30
+  # Clipping value for the TWOSTEP algorithm
+  clipconc : 1d0
+  # Max number of reaction types
+  ntyperate : 50
+  # Number of levels for emissions
+  nlevemis : 8
+
+#####################################################################
+#####################################################################
+# Chemical scheme
+chemistry :
+  plugin:
+   name : CHIMERE
+   version : gasJtab
+  # rq: on peut economiser des repertoires en ayant le systeme de projet comme avant...
+#  dir_precomp : /home/users/ipison/CHIMERE/GMESMDD/espigrad/projet/chemical_scheme/
+  dir_precomp : /home/chimereges/aberchet/debugchimere/inputs/
+  schemeid : ges.espigrad
+  #  Max number of reactants/reaction XX a trouver dans les fichiers plus tard!
+  nreactamax : 4
+  #  Number of tabul. temperatures for stoichio.
+  ntemps : 4
+  # Max number of rate constants
+  ntabmax : 22
+  # Max number of tabulated photolysis levels
+  nlevphotmax : 50
+  # Max number of tabulated zenith angles
+  ntabuzenmax : 20
+  # Max number of photolysis reactions
+  nphotmax : 50
+
+#####################################################################
+#####################################################################
+# Domain definition
+domain :
+  plugin:
+   name    : CHIMERE
+   version : std
+  domid : ESPIG1
+  repgrid : /home/users/ipison/CHIMERE/GMESMDD/espigrad/projet/domains/
+  nlev: 29
+  p1: 995
+  pmax: 300
+  emissublayer : 0
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Meteo definition
+meteo :
+  plugin:
+   name    : CHIMERE
+   version : std
+  dir: /home/chimereicos/ipison/debugchimere/testfornewpyvarinputs/
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# How to build your observation vector and observation uncertainties if needed
+# Also projects information from the observation to the model space
+# - file_obsvect: observation vector from previous simulations
+obsvect:
+  plugin:
+    name: standard
+    version: std
+  #file_obsvect : /home/satellites13/msaunois/PYVAR_FWD/GCP_2018/run_00_18_inca/obsoperator/fwd_0000/monitor_selec1.nc
+  #file_obsvect : /home/satellites13/aberchet/LMDZ_DATA/monit/monitor_scratch2.nc
+  #file_obsvect : /home/users/ipison/cif/examples/monitorfortestsPUY.nc
+  file_obsvect : /home/chimereges/aberchet/debugchimere/monitor_LBC.nc
+#  file_obsvect : /home/chimereges/aberchet/debugchimere/monitorfortestsPUY27.nc
+  dump: True
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+controlvect:
+  plugin:
+    name: standard
+    version: std
+  components:
+    fluxes:
+      dir: /home/chimereges/aberchet/debugchimere/inputs/
+      parameters:
+        CH4 :
+          hresol : hpixels
+          vresol : vpixels
+          nlev: 8
+  #        errtype : max
+          err : 1.0
+          period : 4H
+    inicond :
+      dir: /home/chimereges/aberchet/debugchimere/inputs/
+      parameters:
+        CH4:
+          hresol : hpixels
+          err : 0.05
+#          type : physical
+#    latcond:
+#      dir: /home/chimereges/aberchet/debugchimere/inputs/
+#      parameters:
+#        CH4:
+#          hresol: hpixels
+#          vresol: vpixels
+#          nlev: 29
+##          vresol: kbands
+##          kbands: [0, 5, 10, 20, 30]
+#          err: 0.1
+#          period: 4H
+#    topcond:
+#      dir: /home/chimereges/aberchet/debugchimere/inputs/
+#      parameters:
+#        CH4:
+#          hresol: hpixels
+#          err: 0.05
+#          period: 4H
+##          type : physical

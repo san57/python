@@ -1,0 +1,35 @@
+# Name of the chemical scheme
+schemeid: LMDZ_SACS
+
+# Active species : species to be transported in the model
+acspecies:
+  CH4:
+    restart_id: 27
+    mass: 16.0425
+
+emis_species:
+  CH4:
+
+# State variables and J for photolysis
+kinetic :
+  dir : /home/inversion/yyin/CHEMFILES/INCA/
+  file : inca.an2008.m%m.nc
+
+# Prescribed species
+prescrconcs :
+  OH :
+    dir : /home/inversion/yyin/CHEMFILES/INCA/
+    file : inca.an2008.m%m.nc
+  O1D :
+    dir : /home/inversion/yyin/CHEMFILES/INCA/
+    file : inca.an2008.m%m.nc
+
+# Chemical reactions
+# Photolysis constant reactions must be in kinetic file.
+reactions:
+  r1  : CH4+O1D->CH3O2+OH           k=1.125e-10
+  r2  : CH4+O1D->H2+CH2O            k=3.75e-11
+  r3  : CH4+OH->CH2O                k(T)=Aexp(-B/T),A=2.45e-12,B=1775
+
+
+

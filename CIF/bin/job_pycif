@@ -1,0 +1,10 @@
+#QSUB -s /bin/tcsh
+#PBS -q shortp
+#PBS -l nodes=1:ppn=8
+
+
+cd ~/CIF
+#python -m pycif config_files/config_inv_gcp_inca_m1qn3_long.yml
+#python -m pycif config_files/config_lmdz_test_sat.yml
+python -m pycif config_files/config_tests_chimere_short.yml
+

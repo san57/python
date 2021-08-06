@@ -1,0 +1,199 @@
+(python3) yktiwari@elogin02:~/SANTANU/CIF> python setup.py develop --user
+running develop
+running egg_info
+creating pyCIF.egg-info
+writing pyCIF.egg-info/PKG-INFO
+writing dependency_links to pyCIF.egg-info/dependency_links.txt
+writing entry points to pyCIF.egg-info/entry_points.txt
+writing requirements to pyCIF.egg-info/requires.txt
+writing top-level names to pyCIF.egg-info/top_level.txt
+writing manifest file 'pyCIF.egg-info/SOURCES.txt'
+reading manifest file 'pyCIF.egg-info/SOURCES.txt'
+writing manifest file 'pyCIF.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/cccr/yktiwari/.local/lib/python3.7/site-packages/pyCIF.egg-link (link to .)
+Adding pyCIF 0.0.2 to easy-install.pth file
+Installing pycif script to /home/cccr/yktiwari/.local/bin
+
+Installed /home/cccr/yktiwari/SANTANU/CIF
+Processing dependencies for pyCIF==0.0.2
+Searching for cfgrib<=0.9.8.1
+Reading https://pypi.org/simple/cfgrib/
+Downloading https://files.pythonhosted.org/packages/a0/4c/9af8d9f0ba8fd12bc74a959fcc2f7a985a93faced0cf513aed7bb025ae4e/cfgrib-0.9.8.1-py2.py3-none-any.whl#sha256=8db1fb20c2be9663f5a118990c54c8cb4f08155ffdd67edc048982d5997ae302
+Best match: cfgrib 0.9.8.1
+Processing cfgrib-0.9.8.1-py2.py3-none-any.whl
+Installing cfgrib-0.9.8.1-py2.py3-none-any.whl to /home/cccr/yktiwari/.local/lib/python3.7/site-packages
+writing requirements to /home/cccr/yktiwari/.local/lib/python3.7/site-packages/cfgrib-0.9.8.1-py3.7.egg/EGG-INFO/requires.txt
+Adding cfgrib 0.9.8.1 to easy-install.pth file
+Installing cfgrib script to /home/cccr/yktiwari/.local/bin
+
+Installed /home/cccr/yktiwari/.local/lib/python3.7/site-packages/cfgrib-0.9.8.1-py3.7.egg
+Searching for click
+Reading https://pypi.org/simple/click/
+Downloading https://files.pythonhosted.org/packages/d2/3d/fa76db83bf75c4f8d338c2fd15c8d33fdd7ad23a9b5e57eb6c5de26b430e/click-7.1.2-py2.py3-none-any.whl#sha256=dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc
+Best match: click 7.1.2
+Processing click-7.1.2-py2.py3-none-any.whl
+Installing click-7.1.2-py2.py3-none-any.whl to /home/cccr/yktiwari/.local/lib/python3.7/site-packages
+Adding click 7.1.2 to easy-install.pth file
+
+Installed /home/cccr/yktiwari/.local/lib/python3.7/site-packages/click-7.1.2-py3.7.egg
+Searching for attrs>=19.2
+Reading https://pypi.org/simple/attrs/
+Downloading https://files.pythonhosted.org/packages/14/df/479736ae1ef59842f512548bacefad1abed705e400212acba43f9b0fa556/attrs-20.2.0-py2.py3-none-any.whl#sha256=fce7fc47dfc976152e82d53ff92fa0407700c21acd20886a13777a0d20e655dc
+Best match: attrs 20.2.0
+Processing attrs-20.2.0-py2.py3-none-any.whl
+Installing attrs-20.2.0-py2.py3-none-any.whl to /home/cccr/yktiwari/.local/lib/python3.7/site-packages
+writing requirements to /home/cccr/yktiwari/.local/lib/python3.7/site-packages/attrs-20.2.0-py3.7.egg/EGG-INFO/requires.txt
+Adding attrs 20.2.0 to easy-install.pth file
+
+Installed /home/cccr/yktiwari/.local/lib/python3.7/site-packages/attrs-20.2.0-py3.7.egg
+Searching for future==0.17.1
+Best match: future 0.17.1
+Adding future 0.17.1 to easy-install.pth file
+Installing futurize script to /home/cccr/yktiwari/.local/bin
+Installing pasteurize script to /home/cccr/yktiwari/.local/bin
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for Pillow==6.1.0
+Best match: Pillow 6.1.0
+Adding Pillow 6.1.0 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for psutil==5.6.3
+Best match: psutil 5.6.3
+Adding psutil 5.6.3 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for pyproj==1.9.6
+Best match: pyproj 1.9.6
+Adding pyproj 1.9.6 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for PyYAML==5.1.2
+Best match: PyYAML 5.1.2
+Adding PyYAML 5.1.2 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for xarray==0.14.1
+Best match: xarray 0.14.1
+Adding xarray 0.14.1 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for python-dateutil==2.8.0
+Best match: python-dateutil 2.8.0
+Adding python-dateutil 2.8.0 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for pytz==2019.2
+Best match: pytz 2019.2
+Adding pytz 2019.2 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for netCDF4==1.5.1.2
+Best match: netCDF4 1.5.1.2
+Adding netCDF4 1.5.1.2 to easy-install.pth file
+Installing nc3tonc4 script to /home/cccr/yktiwari/.local/bin
+Installing nc4tonc3 script to /home/cccr/yktiwari/.local/bin
+Installing ncinfo script to /home/cccr/yktiwari/.local/bin
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for pandas==0.25.1
+Best match: pandas 0.25.1
+Adding pandas 0.25.1 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for matplotlib==3.1.1
+Best match: matplotlib 3.1.1
+Adding matplotlib 3.1.1 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for scipy==1.3.1
+Best match: scipy 1.3.1
+Adding scipy 1.3.1 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for cftime==1.1.3
+Best match: cftime 1.1.3
+Adding cftime 1.1.3 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for numpy==1.16.5
+Best match: numpy 1.16.5
+Adding numpy 1.16.5 to easy-install.pth file
+Installing f2py script to /home/cccr/yktiwari/.local/bin
+Installing f2py3 script to /home/cccr/yktiwari/.local/bin
+Installing f2py3.7 script to /home/cccr/yktiwari/.local/bin
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for GDAL==2.4.1
+Best match: GDAL 2.4.1
+Adding GDAL 2.4.1 to easy-install.pth file
+Installing gdalident.py script to /home/cccr/yktiwari/.local/bin
+Installing esri2wkt.py script to /home/cccr/yktiwari/.local/bin
+Installing gdalcompare.py script to /home/cccr/yktiwari/.local/bin
+Installing gcps2wld.py script to /home/cccr/yktiwari/.local/bin
+Installing gdalimport.py script to /home/cccr/yktiwari/.local/bin
+Installing epsg_tr.py script to /home/cccr/yktiwari/.local/bin
+Installing pct2rgb.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal_sieve.py script to /home/cccr/yktiwari/.local/bin
+Installing mkgraticule.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal_polygonize.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal_retile.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal_pansharpen.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal_merge.py script to /home/cccr/yktiwari/.local/bin
+Installing gcps2vec.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal_fillnodata.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal_calc.py script to /home/cccr/yktiwari/.local/bin
+Installing ogrmerge.py script to /home/cccr/yktiwari/.local/bin
+Installing gdalchksum.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal2xyz.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal_edit.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal2tiles.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal_proximity.py script to /home/cccr/yktiwari/.local/bin
+Installing gdal_auth.py script to /home/cccr/yktiwari/.local/bin
+Installing rgb2pct.py script to /home/cccr/yktiwari/.local/bin
+Installing gdalmove.py script to /home/cccr/yktiwari/.local/bin
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for cffi==1.12.3
+Best match: cffi 1.12.3
+Adding cffi 1.12.3 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for six==1.12.0
+Best match: six 1.12.0
+Adding six 1.12.0 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for cycler==0.10.0
+Best match: cycler 0.10.0
+Processing cycler-0.10.0-py3.7.egg
+cycler 0.10.0 is already the active version in easy-install.pth
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages/cycler-0.10.0-py3.7.egg
+Searching for pyparsing==2.4.2
+Best match: pyparsing 2.4.2
+Adding pyparsing 2.4.2 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for kiwisolver==1.1.0
+Best match: kiwisolver 1.1.0
+Adding kiwisolver 1.1.0 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for pycparser==2.19
+Best match: pycparser 2.19
+Adding pycparser 2.19 to easy-install.pth file
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Searching for setuptools==41.2.0
+Best match: setuptools 41.2.0
+Adding setuptools 41.2.0 to easy-install.pth file
+Installing easy_install script to /home/cccr/yktiwari/.local/bin
+
+Using /home/cccr/yktiwari/anaconda3/envs/python3/lib/python3.7/site-packages
+Finished processing dependencies for pyCIF==0.0.2
+Traceback (most recent call last):
+  File "setup.py", line 93, in <module>
+    "{}/.git/hooks/post-checkout".format(os.getcwd())
+FileNotFoundError: [Errno 2] No such file or directory: '/home/cccr/yktiwari/SANTANU/CIF/hooks/post-checkout' -> '/home/cccr/yktiwari/SANTANU/CIF/.git/hooks/post-checkout'

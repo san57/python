@@ -1,0 +1,122 @@
+Python version of the congrad minimization algorithm
+
+Mike Fisher (ECMWF), April 2002
+Frederic Chevallier (LSCE), April 2004, for the Python adaptation
+
+Description of the Fortran subroutine:
+
+  CONGRAD - Lanczos algorithm linear equation and eigenvalue solver
+
+  Purpose. Simultaneously minimizes the cost function and determines
+  -- some of the eigenvalues and eigenvectors of its Hessian.
+
+  Interface.
+  -
+     CALL CONGRAD (...)
+
+     Explicit arguments:
+
+     Inputs: simul   -- The simulator
+             px      -- guess at the vector which minimizes the cost.
+             pgrad   -- gradient of cost function at initial 'px'.
+             planc1  -- Initial Lanczos vector
+             preduc  -- required reduction in gradient norm.
+             pevbnd  -- Accuracy required of approximate eigenvectors.
+             kvadim  -- dimension of vectors px, pgrad, etc.
+             kmaxit  -- iteration stops if number of iterations
+                        exceeds this value.
+             kverbose -- verbosity (0 => no messages, 1=> taciturn,
+             2 => verbose)
+             kulout  -- I/O unit number for information messages (e.g.
+             standard output)
+             kulerr  -- I/O unit number for error messages (e.g. standard
+             error)
+             ldevecs -- calculate eigenvectors?
+             ldsolve -- minimize the cost function?
+
+     Outputs: px     -- improved guess at the vector which minimizes
+                        the cost.
+              pgrad  -- estimated gradient of cost function at final 'px'.
+              preduc -- achieved reduction in gradient norm.
+              pgolubu -- upper bound for: (planc1)' (J'')^-1 planc1
+              pgolubl -- lower bound for: (planc1)' (J'')^-1 planc1
+              pevecs  -- eigenvectors of the Hessian (with
+              preconditioning undone, and
+                         scaled by sqrt(lambda-1))
+              kmaxit  -- the number of iterations actually performed
+
+  Externals.   SIMUL
+  -   SSTEQR/DSTEQR (LAPACK eigen-decomposition routine)
+               SPTSV/DPTSV   (LAPACK symmetric tri-diagonal solver)
+               PRECOND
+               WREVECS
+               XFORMEV
+               ABOR1
+
+  The simulator (SIMUL) interface is as follows:
+
+       CALL SIMUL (kindic,kvadim,px,pcost,pgrad,kiter)
+
+       INTEGER_M, INTENT(IN)  :: kindic      -- SIMUL is always called
+       with indic=4
+       INTEGER_M, INTENT(IN)  :: kvadim      -- The dimension of the
+       control vector
+       INTEGER_M, INTENT(IN)  :: kiter       -- The iteration counter
+       REAL_B,    INTENT(IN)  :: px          -- The control variable
+       REAL_B,    INTENT(OUT) :: pcost       -- The value of the cost
+       function
+       REAL_B,    INTENT(OUT) :: pgrad       -- The gradient of the cost
+       function
+
+(Note: CONGRAD does not make use of the value of the cost function, pcost)
+
+
+  Reference.
+  -
+      None yet!
+
+  Author.
+  -
+      Mike Fisher  *ECMWF*
+
+  Modifications.
+  --
+      Original      94/04/19
+      M. Fisher:    95/09/20   Reorganized code
+      M. Fisher:    96/05/16   Orthogonalize every iteration
+      M. Fisher:    96/08/01   Optionally keep vectors in memory
+      E. Andersson  96/08/01   Pre-calculated math.sqrt(SCALP)
+      M. Fisher:    97/08/05   Change orthogonalization and f90ize
+      M. Fisher:    97/11/26   USE YOM_DISTRIBUTED_VECTORS
+      M. Fisher:    99/01/12   Generalized Cross Validation
+      M. Fisher:    02/04/30   remove ECMWF-specific code
+  F. Chevallier:    04/05      translate into python
+
+  Comparison of congrad variables to those of Lanczos (R Thompson, Feb 2012)
+  --
+  solve x for Ax = w : find T = V*A*Vt
+      A     =  pgrad
+      vj(0)    =  pgrad/norm(pgrad)
+      beta(0)  =  0
+
+  for i = 1:k
+      wj    =  A*vj - beta*vj
+      alpha =  < wj, vj >
+      wj+1  =  wj - alpha*vj
+      beta  =  norm(wj+1)
+      vj+1  =  wj+1/beta
+
+  congrad variable equivalents :
+      zdelta     =  alpha
+      zbeta      =  beta
+      zcglwk[j,] =  vj
+      pgrad      =  A
+
+  solution :
+      T          =  tridiagonal vector, alpha, beta
+      x          =  x0 + V*T^-1*Vt
+
+  where :
+      x          = px (best fit solution vector)
+      x0         = px0 (first guess solution vector)
+      vt         = zqg0

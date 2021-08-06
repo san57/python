@@ -1,0 +1,66 @@
+
+
+
+# Name of the chemical scheme
+schemeid: LMDZ_SACS
+
+# Active species : species to be transported in the model
+acspecies:
+  CH4:
+    restart_id: 27
+    mass: 16.0425
+  MCF:
+    restart_id: 06
+    mass: 133.4023
+  CO:
+    restart_id: 28
+    mass: 28.01040
+  CH2O:
+    restart_id: 33
+    mass: 30.02520
+
+# State variables and J for photolysis
+kinetic :
+  dir : /home/inversion/yyin/CHEMFILES/INCA/
+  file : inca.an2008.m%m.nc
+
+# Prescribed species
+prescrconcs :
+  OH :
+    dir : /home/inversion/yyin/CHEMFILES/INCA/
+    file : inca.an2008.m%m.nc
+  O1D :
+    dir : /home/inversion/yyin/CHEMFILES/INCA/
+    file : inca.an2008.m%m.nc
+  Cl:
+    dir: /home/satellites10/jthanwer/champs/invsat_Didier/
+    file: INVSAT_DM_2009_m%m.nc
+
+# Deposited species
+deposition :
+  CH2O :
+    dir : /home/inversion/yyin/CHEMFILES/INCA/
+    file : inca.an2008.m%m.nc
+
+# Prod/loss species
+prodloss3d :
+  CH2O :
+    dir : /home/inversion/yyin/CHEMFILES/INCA/
+    file : inca.an2008.m%m.nc
+
+# Chemical reactions
+# Photolysis constant reactions must be in kinetic file.
+reactions:
+  r1  : CH4+O1D->CH3O2+OH           k=1.125e-10
+  r2  : CH4+O1D->H2+CH2O            k=3.75e-11
+  r3  : CH2O+OH->HO2+CO+H2O         k=9.00e-12
+  r4  : CO+OH->CO2+H                k(P)=A(B+C*P/Pref),A=1.50e-13,B=1.0,C=0.6
+  r5  : CH4+OH->CH2O                k(T)=Aexp(-B/T),A=2.45e-12,B=1775
+  r6  : MCF+OH->CH2CCl3+H2O         k(T)=Aexp(-B/T),A=1.80e-12,B=1550
+  r7  : MCF->X                      J=016
+  r8  : CH2O->2*HO2+CO              J=012
+  r9  : CH2O->H2+CO                 J=013
+  r10 : CH4+Cl->HCl+CH3             k(T)=Aexp(-B/T),A=7.10e-12,B=1270
+
+
+

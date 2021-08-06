@@ -1,0 +1,3 @@
+[console_scripts]
+pycif = pycif.__main__:main
+

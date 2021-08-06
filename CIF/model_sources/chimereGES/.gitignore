@@ -1,0 +1,6 @@
+*.e
+*.mod
+*.o
+*.a
+Makefile.hdr
+Makefile.hdr.sed-commands

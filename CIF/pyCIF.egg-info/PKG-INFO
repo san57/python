@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pyCIF
+Version: 0.0.2
+Summary: A Python-based interface to the Community Inversion Framework
+Home-page: http://community-inversion.eu/
+Author: Antoine Berchet
+Author-email: antoine.berchet@lsce.ipsl.fr
+License: CeCILL-B
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=2.7
+Provides-Extra: test
+Provides-Extra: dev

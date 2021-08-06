@@ -1,0 +1,296 @@
+#####################
+#####################
+# PYCIF config file #
+#####################
+
+# Define here all parameters for PYCIF following Yaml syntax
+# For details on Yaml syntax, please see: 
+# http://docs.ansible.com/ansible/latest/YAMLSyntax.html
+
+# For non-specified parameters, one can either comment the corresponding line
+# or give the value "null"
+
+# Some parameters are switches that need to be activated or not.
+# PYCIF expects a boolean True/False
+# Yaml accepts the following syntax to be converted to booleans:
+# y|Y|yes|Yes|YES|n|N|no|No|NO|true|True|TRUE|false|False|FALSE|on|On|ON|off|Off|OFF
+# This offers flexibility, but one should stick to a style for consistency
+
+#####################################################################
+#####################################################################
+# PYCIF parameters
+
+# Verbose level
+# 1 = Basic information
+# 2 = Debugging
+verbose : 1
+
+# Log file (to be saved in $wordkir)
+logfile: pycif.logtest
+
+# Execution directory
+#workdir : /home/satellites13/msaunois/INVERSION/GCP_2018/run_00_18_inca_base_network/
+#workdir : /home/satellites13/aberchet/msaunois/
+workdir : /home/chimereges/aberchet/test_sat/
+
+# Initial date
+# Use the following compatible format for the date:
+# YYYY-mm-dd or YYYY-mm-dd HH:mm
+datei : 2010-01-01
+
+# End date (same as for the initial date)
+datef : 2010-02-01
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# To-Do for initializing PYCIF
+# Can be commented if running PYCIF directly
+#todo_init: [model]
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+platform:
+  plugin:
+    name: LSCE
+    version: obelix
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Running mode for PYCIF
+#mode:
+#  plugin:
+#    name: 4dvar
+#    version: std
+#  minimizer:
+#    plugin:
+#      name: M1QN3
+#      version: std
+#    simulator:
+#      plugin:
+#        name: gausscost
+#        version: std
+#      reload_from_previous: True
+#    maxiter: 20
+#    epsg: 0.02
+#    df1: 0.01
+#    chi_min:
+#    chi_max:
+mode:
+  plugin:
+    name: adj-tl_test
+    version: std
+  increments: 0.2
+  incrmode: cst
+  testspace: control
+  reload_results: False
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Transport model
+# Accepts any model registered in pycif.models
+model :
+  plugin:
+    name    : LMDZ
+    version : std
+
+  # Length of simulation sub-periods (use a Pandas frequency syntax)
+  periods: 1MS
+
+  # Executable
+  fileexec : /home/users/aberchet/CIF/model_sources/DISPERSION_gch/dispersion.e
+
+  # Definition file (includes some parameters for the simulation)
+  filedef  : /home/users/aberchet/CIF/model_sources/DISPERSION_gch/def/run.def
+
+  # Ap, Bp file
+  file_vcoord: /home/inversion/msaunois/LMDZ/39L/restartT2029-2006-1_MCFscaled2CH4scaled.nc
+
+  # Include physics and thermals
+  # Default is True and False respectively
+  physic : True
+  thermals : False
+
+  # Convection scheme: One of :
+  # 'TK' = Tiedke
+  # 'KE' = 'Kerry Emmanuel'
+  # 'KE-Therm' = 'Kerry Emmanuel + some thermics'
+  conv_scheme: TK
+
+  # Dump outputs into a NetCDF file
+  dump: False
+
+  # Flushing trajq.bin files when not needed anymore
+  autoflush: False
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Chemical scheme
+chemistry :
+  file_yaml: /home/users/aberchet/CIF/config_files/basic_scheme.yml
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Observation operator
+# Used to run the model and translates information from model/measurement
+# spaces to control/observation spaces
+obsoperator:
+  plugin:
+    name: standard
+    version: std
+  autorestart: False
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# Arguments to define the state vector
+# These are specifi to the state vector and inversion method you chose
+# Please refer to the documentation to know what to include here
+# For the standard LMDZ, include the following:
+# - filelsm: land-sea mask (must be consistent with LMDZ grid)
+# - correl: Use correlation or not in B
+# - dircorrel: path to pre-computed correlations
+# - sigma_land: spatial correlation length for prior errors over land (km)
+# - sigma_sea: spatial correlation length for prior errors over ocean (km)
+# - tracers: list of tracers to put in the state vector (with definition arguments):
+#     - calcstd: calculate global standard deviation
+#     - hresol: resolution at which fields are scaled
+#            (choice = bands,regions,pixels;
+#             if regions, provide a netcdf file fileregion
+#             if bands, define a list of latitudes as band limits (n+1 for n bands)
+#     - periodflux: period of variation for increments within a month (days)
+#     - glob_err (optional) = uncertainty on global budget
+statevect:
+  plugin:
+    name: standard
+    version: std
+  components:
+    fluxes:
+      parameters:
+        CH4:
+          plugin:
+            name: 'LMDZ'
+            version: 'sflx'
+            type: 'fluxes'
+          dir: /home/inversion/msaunois/FLUXES/CH4/PYVAR/
+          file: sflx_CH4_GCP2018_%Y_LMDZ9696_phy.nc
+          varname: flx_ch4
+    prescrconcs:
+      parameters:
+        OH:
+          dir: /home/inversion/yyin/CHEMFILES/INCA/
+          file: inca.an2008.m%m.nc
+        O1D:
+          dir: /home/inversion/yyin/CHEMFILES/INCA/
+          file: inca.an2008.m%m.nc
+        Cl:
+          dir: /home/satellites10/jthanwer/champs/invsat_Didier/
+          file: INVSAT_DM_mean_2003-2009_m%m_scaletropwang.nc
+    inicond :
+      dir: /home/satellites10/jthanwer/restarts/
+      file: restart_2012-01_ch4_d13c.nc
+      parameters:
+        CH4:
+          plugin:
+            name: 'LMDZ'
+            version: 'ic'
+            type: 'fields'
+          hresol: bands
+          bands_lat: [-90.1, -60, -30, 0, 30, 60, 90.1]
+          bands_lon: [-180.1, -150, -120, -90, -60, -30,
+                      0, 30, 60, 90, 120, 150, 180.1]
+          err: 0.05
+          calcstd: False
+          restart_id: 1
+    meteo:
+      plugin:
+        name: LMDZ
+        version: mass-fluxes
+      dir: /home/comdata1/PYVARLMDZ_files_96x96x39/MASS_FLUXES/TD/
+#        MCF:
+#          hresol : bands
+#          bands_lat : [-90.1, -60, -30, 0, 30, 60, 90.1]
+#          bands_lon : [-180.1, -150, -120, -90, -60, -30,
+#                       0, 30, 60, 90, 120, 150, 180.1]
+#          err : 0.1
+#          calcstd : False
+
+          #hresol : global
+          #err : 0.1
+#####################################################################
+#####################################################################
+ 
+
+#####################################################################
+#####################################################################
+# Domain definition
+domain :
+  plugin :
+    name : LMDZ
+    version : std
+  xmin : -180
+  xmax : 180
+  ymin : -90
+  ymax : 90
+  nlon : 97
+  nlat : 96
+  nlev : 39
+  type : deg
+  filegrid : /home/users/aberchet/PYVAR/msaunois/pyvar/grid_LMDZ96_96.txt
+#####################################################################
+#####################################################################
+
+
+#####################################################################
+#####################################################################
+# How to build your observation vector and observation uncertainties if needed
+# Also projects information from the observation to the model space
+# - file_obsvect: observation vector from previous simulations
+obsvect:
+  plugin:
+    name: standard
+    version: std
+  #file_obsvect : /home/satellites13/msaunois/PYVAR_FWD/GCP_2018/run_00_18_inca/obsoperator/fwd_0000/monitor_selec1.nc
+  #  file_obsvect : /home/satellites13/aberchet/LMDZ_DATA/monit/monitor_pycif_test.nc
+  file_obsvect : /home/chimereges/aberchet/satellites/monitor_201001.nc
+  dump: True
+  wfunc : False
+  file_statlev: /home/users/aberchet/PYVAR/msaunois/pyvar/ReadObs/stations_levels_LMDZ39lev.txt
+  transform:
+    satellites:
+      plugin:
+        name: satellites
+        version: std
+        type: transform
+      dir_satellites: /home/chimereges/aberchet/satellites/
+      formulae:
+        MOPITT: 4
+        GOSAT: 3
+      nchunks: 50
+    timeavg:
+      plugin:
+        name: timeavg
+        version: std
+        type: transform
+#####################################################################
+#####################################################################
+

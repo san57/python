@@ -1,0 +1,59 @@
+M1qn3 has two running modes: the SID (Scalar Initial Scaling) mode
+and the DIS (Diagonal Initial Scaling) mode. Both do not require
+the same amount of storage, the same subroutines, ...
+In the description below, items that differ in the DIS mode with
+respect to the SIS mode are given in brackets.
+
+M1QN3 uses the following subroutines:
+    M1QN3A
+    DD, DDS
+    MLIS0 + ECUBE (Dec 88)
+    MUPDTS, YSTBL.
+
+La sous-routine M1QN3 est une interface entre le programme
+appelant et la sous-routine M1QN3A, le minimiseur proprement dit.
+
+Le module PROSCA est sense realiser le produit scalaire de deux
+vecteurs de Rn; le module CTONB est sense realiser le changement
+de coordonnees correspondant au changement de bases: base
+euclidienne -> base orthonormale (pour le produit scalaire
+PROSCA); le module CTBAB fait la transformation inverse: base
+orthonormale -> base euclidienne.
+
+Iz is an integer working zone for M1QN3A, its dimension is 5.
+It is formed of 5 scalars that are set by the optimizer:
+   - the dimension of the problem,
+   - a identifier of the scaling mode,
+   - the number of updates,
+   - two pointers.
+
+Rz est la zone de travail pour M1QN3A, de dimension nrz.
+Elle est subdivisee en
+   3 [ou 4] vecteurs de dimension n: d,gg,[diag,]aux
+   m scalaires: alpha
+   m vecteurs de dimension n: ybar
+   m vecteurs de dimension n: sbar
+
+m est alors le plus grand entier tel que
+   m*(2*n+1)+3*n .le. nrz [m*(2*n+1)+4*n .le. nrz)]
+soit m := (nrz-3*n) / (2*n+1) [m := (nrz-4*n) / (2*n+1)].
+Il faut avoir m >= 1, donc nrz >= 5n+1 [nrz >= 6n+1].
+
+A chaque iteration la metrique est formee a partir d'un multiple
+de l'identite [d'une matrice diagonale] D qui est mise a jour m
+fois par la formule de BFGS en utilisant les m couples {y,s} les
+plus recents.
+
+
+   arguments
+
+integer n,impres,io,mode,niter,nsim,iz(5),nrz
+real x(n),f,g(n),dxmin,df1,epsg,rz(nrz)
+external simul,prosca,ctonb,ctcab
+
+   variables locales
+
+logical inmemo,sscale
+integer ntravu,id,igg,idiag,iaux,ialpha,iybar,isbar,m,mmemo
+real r1,r2
+double precision ps

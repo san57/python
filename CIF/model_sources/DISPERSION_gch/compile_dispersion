@@ -1,0 +1,38 @@
+#!/bin/csh
+
+# User defined
+# Available resolution: 96x72x19 (valid for regular or zoomed grid) 
+#                       96x95x39
+set dim=96x95x39
+# Parameter for filtering : 16x15 for lmdz96x96x39
+#                           12x11 for lmdz96x72x19
+set para=16x15
+setenv GCM `pwd`
+##############
+
+setenv LIBF ${GCM}/libf
+setenv LIBO ${GCM}/libo/F90_${dim}
+
+mkdir -p ${LIBO}
+echo ${LIBO}
+
+# Creation of the file dimensions.h if necessary
+set dim=`echo $dim | sed -e 's/[^0-9]/ /g'`
+cd ${LIBF}/grid/dimension
+./makdim $dim
+
+# Creation of the file parafilt.h if necessary
+set para=`echo $para | sed -e 's/[^0-9]/ /g'`
+cd ${LIBF}/filtrez/parafilt
+./makpara $para
+
+cd ${GCM}
+pwd
+# Clean previous compilation if asked
+if ( "$1" == clean ) then
+   echo """""""""clean"""""""""
+   make clean
+endif
+# Launch the compilation
+make
+

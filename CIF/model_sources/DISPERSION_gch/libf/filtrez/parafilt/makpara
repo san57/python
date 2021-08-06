@@ -1,0 +1,28 @@
+for i in $* ; do
+   list=$list.$i
+done
+fichpara=parafilt${list}
+echo $fichpara
+echo $list
+if [ ! -f $fichpara ] ; then
+# si le fichier de parametres n'existe pas, on le cree
+
+  if [ $# -eq 2 ] ; then
+     un=$1
+     us=$2
+     vn=$1
+     vs=$1
+  else
+     echo " case not defined - check makpara"
+     exit
+  fi
+
+cat << EOF > $fichpara
+        INTEGER nfilun, nfilus, nfilvn, nfilvs
+       PARAMETER (nfilun=${un}, nfilus=${us}, nfilvn=${vn}, nfilvs=${vs})
+EOF
+fi
+
+\rm ../parafilt.h
+cp $fichpara ../parafilt.h
+ 

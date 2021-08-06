@@ -1,0 +1,126 @@
+2020-09-08 21:09:45: pyCIF has been initialized with the following parameters:
+2020-09-08 21:09:45: Yaml configuration file: /home/cccr/yktiwari/SANTANU/CIF/config_dummy_forward.yml
+2020-09-08 21:09:45: Log file: pycif.logtest
+2020-09-08 21:09:45: Start date: 2010-01-01 00:00:00
+2020-09-08 21:09:45: End date: 2010-01-05 00:00:00
+2020-09-08 21:09:45: Working directory: /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/
+2020-09-08 21:09:45: Couldn't read longitudes and latitudes.
+Make them from given coordinates
+2020-09-08 21:09:45: Extracting measurements from /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/monitor_reference.nc
+2020-09-08 21:09:45: [Errno 2] No such file or directory: b'/home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/monitor_reference.nc'
+2020-09-08 21:09:45: Could not find a monitor file, reading observations
+2020-09-08 21:09:46: Dumping datastore to /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/monitor_reference.nc
+2020-09-08 21:09:46: Initializing the model
+2020-09-08 21:09:46: Try opening /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsvect/monitor.nc
+2020-09-08 21:09:46: Warning! The prescribed monitor file is not consistent with the current simulation. Re-analysing it
+2020-09-08 21:09:46: Cropping obsvect.datastore to simulation window
+2020-09-08 21:09:46: 2010-01-01 00:00:00 to 2010-01-05 00:00:00
+2020-09-08 21:09:46: Finding model grid cells corresponding to observations
+2020-09-08 21:09:46: Finding model time steps corresponding to observations
+2020-09-08 21:09:46: Processing time steps for observations from 2010-01-01 00:00:00 to 2010-01-02 00:00:00
+2020-09-08 21:09:46: Processing time steps for observations from 2010-01-02 00:00:00 to 2010-01-03 00:00:00
+2020-09-08 21:09:46: Processing time steps for observations from 2010-01-03 00:00:00 to 2010-01-04 00:00:00
+2020-09-08 21:09:46: Processing time steps for observations from 2010-01-04 00:00:00 to 2010-01-05 00:00:00
+2020-09-08 21:09:46: Dumping datastore to /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsvect/monitor.nc
+2020-09-08 21:09:46: Fetching input files using directory and file format
+2020-09-08 21:09:46: /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/statevect/fluxes//
+2020-09-08 21:09:46: Computing hcorr
+2020-09-08 21:09:46: Computing temporal correlations
+2020-09-08 21:09:46: Initializing the observation operator
+2020-09-08 21:09:46: Running a direct run
+2020-09-08 21:09:47: Running dummy for the period 2010-01-01 00:00:00 to 2010-01-02 00:00:00
+2020-09-08 21:09:47: Running mode: fwd
+2020-09-08 21:09:47: Sub-directory: /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsoperator/fwd_0000/2010-01-01_00-00
+2020-09-08 21:09:47: Note: NumExpr detected 28 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2020-09-08 21:09:47: NumExpr defaulting to 8 threads.
+2020-09-08 21:09:47: Doing transform 6353364939: init_parameter
+2020-09-08 21:09:47: From inputs: dict_keys([])
+2020-09-08 21:09:47: To outputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:47: Doing transform 8557625463: init_parameter
+2020-09-08 21:09:47: From inputs: dict_keys([])
+2020-09-08 21:09:47: To outputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:47: Doing transform 432735960: dump_parameter
+2020-09-08 21:09:47: From inputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:47: To outputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:47: Doing transform 5320610992: dump_parameter
+2020-09-08 21:09:47: From inputs: dict_keys([('param', '')])
+2020-09-08 21:09:47: To outputs: dict_keys([('param', '')])
+2020-09-08 21:09:47: Doing transform 4381891041: dump_parameter
+2020-09-08 21:09:47: From inputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:47: To outputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:47: Doing transform 303870892: run_model
+2020-09-08 21:09:47: From inputs: dict_keys([('meteo', ''), ('param', ''), ('fluxes', 'CH4')])
+2020-09-08 21:09:47: To outputs: dict_keys([])
+2020-09-08 21:09:47: Running the model Dummy in /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsoperator/fwd_0000/2010-01-01_00-00
+2020-09-08 21:09:47: Running the 'FORTRAN' executable
+2020-09-08 21:09:55: Running dummy for the period 2010-01-02 00:00:00 to 2010-01-03 00:00:00
+2020-09-08 21:09:55: Running mode: fwd
+2020-09-08 21:09:55: Sub-directory: /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsoperator/fwd_0000/2010-01-02_00-00
+2020-09-08 21:09:56: Doing transform 6353364939: init_parameter
+2020-09-08 21:09:56: From inputs: dict_keys([])
+2020-09-08 21:09:56: To outputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:56: Doing transform 8557625463: init_parameter
+2020-09-08 21:09:56: From inputs: dict_keys([])
+2020-09-08 21:09:56: To outputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:56: Doing transform 432735960: dump_parameter
+2020-09-08 21:09:56: From inputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:56: To outputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:56: Doing transform 5320610992: dump_parameter
+2020-09-08 21:09:56: From inputs: dict_keys([('param', '')])
+2020-09-08 21:09:56: To outputs: dict_keys([('param', '')])
+2020-09-08 21:09:56: Doing transform 4381891041: dump_parameter
+2020-09-08 21:09:56: From inputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:56: To outputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:56: Doing transform 303870892: run_model
+2020-09-08 21:09:56: From inputs: dict_keys([('meteo', ''), ('param', ''), ('fluxes', 'CH4')])
+2020-09-08 21:09:56: To outputs: dict_keys([])
+2020-09-08 21:09:56: Running the model Dummy in /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsoperator/fwd_0000/2010-01-02_00-00
+2020-09-08 21:09:56: Running the 'FORTRAN' executable
+2020-09-08 21:09:06: Running dummy for the period 2010-01-03 00:00:00 to 2010-01-04 00:00:00
+2020-09-08 21:09:06: Running mode: fwd
+2020-09-08 21:09:06: Sub-directory: /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsoperator/fwd_0000/2010-01-03_00-00
+2020-09-08 21:09:06: Doing transform 6353364939: init_parameter
+2020-09-08 21:09:06: From inputs: dict_keys([])
+2020-09-08 21:09:06: To outputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:06: Doing transform 8557625463: init_parameter
+2020-09-08 21:09:06: From inputs: dict_keys([])
+2020-09-08 21:09:06: To outputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:06: Doing transform 432735960: dump_parameter
+2020-09-08 21:09:06: From inputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:06: To outputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:06: Doing transform 5320610992: dump_parameter
+2020-09-08 21:09:06: From inputs: dict_keys([('param', '')])
+2020-09-08 21:09:06: To outputs: dict_keys([('param', '')])
+2020-09-08 21:09:06: Doing transform 4381891041: dump_parameter
+2020-09-08 21:09:06: From inputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:06: To outputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:06: Doing transform 303870892: run_model
+2020-09-08 21:09:06: From inputs: dict_keys([('meteo', ''), ('param', ''), ('fluxes', 'CH4')])
+2020-09-08 21:09:06: To outputs: dict_keys([])
+2020-09-08 21:09:06: Running the model Dummy in /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsoperator/fwd_0000/2010-01-03_00-00
+2020-09-08 21:09:06: Running the 'FORTRAN' executable
+2020-09-08 21:09:17: Running dummy for the period 2010-01-04 00:00:00 to 2010-01-05 00:00:00
+2020-09-08 21:09:17: Running mode: fwd
+2020-09-08 21:09:17: Sub-directory: /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsoperator/fwd_0000/2010-01-04_00-00
+2020-09-08 21:09:18: Doing transform 6353364939: init_parameter
+2020-09-08 21:09:18: From inputs: dict_keys([])
+2020-09-08 21:09:18: To outputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:18: Doing transform 8557625463: init_parameter
+2020-09-08 21:09:18: From inputs: dict_keys([])
+2020-09-08 21:09:18: To outputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:18: Doing transform 432735960: dump_parameter
+2020-09-08 21:09:18: From inputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:18: To outputs: dict_keys([('meteo', '')])
+2020-09-08 21:09:18: Doing transform 5320610992: dump_parameter
+2020-09-08 21:09:18: From inputs: dict_keys([('param', '')])
+2020-09-08 21:09:18: To outputs: dict_keys([('param', '')])
+2020-09-08 21:09:18: Doing transform 4381891041: dump_parameter
+2020-09-08 21:09:18: From inputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:18: To outputs: dict_keys([('fluxes', 'CH4')])
+2020-09-08 21:09:18: Doing transform 303870892: run_model
+2020-09-08 21:09:18: From inputs: dict_keys([('meteo', ''), ('param', ''), ('fluxes', 'CH4')])
+2020-09-08 21:09:18: To outputs: dict_keys([])
+2020-09-08 21:09:18: Running the model Dummy in /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsoperator/fwd_0000/2010-01-04_00-00
+2020-09-08 21:09:18: Running the 'FORTRAN' executable
+2020-09-08 21:09:25: Dumping datastore to /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsoperator/fwd_0000//monitor.nc
+2020-09-08 21:09:26: Dumping datastore to /home/cccr/yktiwari/SANTANU/CIF/CIF_dummy_test/obsvect/monitor.nc

@@ -1,0 +1,55 @@
+#-*-makefile-*-
+
+include ../Makefile.hdr
+
+RM_LIST =	core chimere.e
+
+LDFLAGS =	-L.  -linitio -ltools -lmodel -ltools -L${NETCDFLIB} -lnetcdff -lnetcdf
+
+all:	chimere 
+
+toto:	
+		( $(CD) modules ; $(MAKE) all )
+		$(LN) modules/master_message_subs.o .
+		$(LN) modules/master_message_subs.mod .
+		$(LN) modules/chimere_common.o .
+		$(LN) modules/chimere_common.mod .
+		$(LN) modules/wholedomain_common.o .
+		$(LN) modules/wholedomain_common.mod .
+		$(LN) modules/message_defs.o .
+		$(LN) modules/message_defs.mod .
+		$(LN) modules/chimere_consts.o .
+		$(LN) modules/chimere_consts.mod .
+
+main:		toto
+		( $(CD) main ; $(MAKE) all )
+		$(LN) main/chimere.o .
+		$(LN) main/integrun_tl.o .
+		$(LN) main/master_locvalues_tl.o .
+
+
+libinitio:	toto
+		( $(CD) initio && $(MAKE) )
+		$(LN) initio/libinitio.a .
+
+libtools:	toto
+		( $(CD) tools && $(MAKE) )
+		$(LN) tools/libtools.a .
+
+libmodel:	toto
+		( $(CD) model ; $(MAKE) all )
+		$(LN) model/libmodel.a .
+
+chimere:	libinitio libtools libmodel main
+		$(MPIFC) -o chimere.e $(FFLAGS) \
+		chimere.o integrun_tl.o master_message_subs.o master_locvalues_tl.o \
+		chimere_common.o wholedomain_common.o message_defs.o chimere_consts.o \
+		$(LDFLAGS)
+
+clean:
+		$(RM) $(RM_LIST)
+		( $(CD) main    ; $(MAKE) clean )
+		( $(CD) modules ; $(MAKE) clean )
+		( $(CD) model   ; $(MAKE) clean )
+		( $(CD) initio  ; $(MAKE) clean )
+		( $(CD) tools   ; $(MAKE) clean )

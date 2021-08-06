@@ -1,0 +1,31 @@
+    digraph G {
+        size ="4,4";
+        mode [shape=box, label="Mode:\nforward",style=filled,color=".7 .3 1.0"];   /*this is a comment*/
+        model [shape=box, label="Model:\ndummy",style=filled,color=".7 .3 1.0"];   /*this is a comment*/
+        controlvect [shape=box, label="Control vector:\nstandard",style=filled,color=".7 .3 1.0"];
+        obsoper [shape=box, label="Obs operator:\nstandard",style=filled,color=red];
+        obsvect [shape=box, label="Obs vector:\nstandard",style=filled,color=red];
+        domain [shape=box, label="Domain:\ndummy",style=filled,color=".7 .3 1.0"];
+        meteo [shape=box, label="Meteo:\ndummy",style=filled,color=".7 .3 1.0"];
+        measurements [shape=box, label="Measurements:\nrandom",style=filled,color=".7 .3 1.0"];
+        fluxes [shape=box, label="Fluxes:\ndummy",style=filled,color=red];
+
+        /*METHOD DEPENDENCIES*/
+        edge [style=bold];
+        mode -> obsoper;
+        obsoper -> obsvect;
+        obsoper -> controlvect;
+        obsoper -> model;
+
+        /*DATA DEPENDENCIES*/
+        edge [color=red];
+        obsvect -> measurements;
+        controlvect -> model;
+        controlvect -> domain;
+        obsvect -> model;
+        mode -> controlvect;
+        obsvect -> measurements;
+        model -> meteo;
+        model -> domain;
+        model -> fluxes;
+    }

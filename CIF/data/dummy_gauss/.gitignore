@@ -1,0 +1,7 @@
+*.pyc
+*.bin
+*.o
+*.mod
+.idea
+monitor.*
+pyCIF.egg-info
